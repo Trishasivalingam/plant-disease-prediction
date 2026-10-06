@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Plant Disease Detection</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+
+            /* ✅ FIXED PATH (Flask static) */
+            background-image: url("/static/Young-plant.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+        }
+
+        /* Heading Top Center */
+        h1 {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 42px;
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 6px black;
+        }
+
+        /* Center Content */
+        .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -40%);
+            text-align: center;
+        }
+
+        input[type="file"] {
+            margin: 20px 0;
+            color: white;
+            font-size: 16px;
+        }
+
+        button {
+            display: block;
+            margin: 15px auto;
+            padding: 12px 25px;
+            font-size: 16px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            background-color: green;
+            color: white;
+        }
+
+        button:hover {
+            background-color: darkgreen;
+        }
+
+        .live-btn {
+            background-color: orange;
+        }
+
+        .live-btn:hover {
+            background-color: darkorange;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Heading -->
+    <h1>🌿 Plant Disease Detection</h1>
+
+    <!-- Center Content -->
+    <div class="content">
+
+        <form action="/predict" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" required><br>
+            <button type="submit">📷 Predict Disease</button>
+        </form>
+
+        <!-- ✅ LIVE CAMERA BUTTON -->
+        <button class="live-btn" onclick="window.location.href='/live'">
+            🎥 Live Prediction
+        </button>
+
+    </div>
+
+</body>
+</html>

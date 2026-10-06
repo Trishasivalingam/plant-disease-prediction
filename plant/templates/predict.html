@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Result</title>
+</head>
+<body>
+
+<h2>Prediction: {{ result }}</h2>
+<h3>Confidence: {{ confidence }}%</h3>
+
+{% if alert %}
+    <h1 style="color:red;">🚨 Disease Detected</h1>
+{% else %}
+    <h1 style="color:green;">✅ Healthy Plant</h1>
+{% endif %}
+
+{% if data %}
+    <h2>🤖 Fertilizer Suggestion</h2>
+
+    <h3>{{ data.fertilizer }}</h3>
+
+    <img src="{{ url_for('static', filename=data.image) }}" width="200">
+
+    <h4>Usage:</h4>
+    <p>{{ data.usage }}</p>
+
+    <h4>Benefits:</h4>
+    <p>{{ data.benefits }}</p>
+{% endif %}
+
+<br>
+<a href="/">⬅ Back</a>
+
+</body>
+</html>
